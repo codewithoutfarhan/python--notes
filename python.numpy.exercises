@@ -1,0 +1,140 @@
+PART 1: Python Loops (For & While Loops)
+📌 Definition & Working (English & Hinglish)
+What is a Loop?
+A loop is a programming structure used to repeat a specific block of code multiple times automatically until a given condition becomes false.
+
+Hinglish mein samjho: Jab humein ek hi kaam ko baar-baar karna ho (jaise 1 se 10 tak numbers print karna), toh hum code ko 10 baar likhne ke bajaye ek loop chala dete hain. Yeh hamara time aur effort dono bachata hai. Python mein main do loops hote hain: for loop (jab pata ho kitni baar chalana hai) aur while loop (jab tak condition true rahe tab tak chalega).
+
+🟢 Python Loops: Easy Questions (5 Core Practice Questions)
+Q1. Print numbers from 1 to 10 using a for loop.
+Explanation: range(1, 11) generates numbers starting from 1 up to 10 (11 is excluded).
+
+Code & Solution:
+
+Python
+# Printing numbers 1 to 10
+for i in range(1, 11):
+    print(i)
+Q2. Print the multiplication table of a given number (e.g., 5).
+Explanation: We loop from 1 to 10 and multiply the target number with the loop variable i.
+
+Code & Solution:
+
+Python
+num = 5
+for i in range(1, 11):
+    print(f"{num} x {i} = {num * i}")
+Q3. Find the sum of all numbers in a list using a for loop.
+Explanation: We initialize a variable total_sum to 0 and keep adding each element of the list to it inside the loop.
+
+Code & Solution:
+
+Python
+numbers = [10, 20, 30, 40, 50]
+total_sum = 0
+
+for num in numbers:
+    total_sum += num
+
+print("Total Sum:", total_sum)
+Q4. Print numbers from 10 down to 1 using a while loop.
+Explanation: A while loop checks the condition first. We start at 10 and decrease the value by 1 in each step (i -= 1) until it hits 0.
+
+Code & Solution:
+
+Python
+i = 10
+while i >= 1:
+    print(i)
+    i -= 1
+Q5. Count the number of vowels in a given string.
+Explanation: We loop through each character of a string and check if it exists in a string of vowels (aeiou).
+
+Code & Solution:
+
+Python
+text = "machine learning"
+vowels = "aeiou"
+count = 0
+
+for char in text:
+    if char in vowels:
+        count += 1
+
+print("Total vowels:", count)
+🟡 Python Loops: Medium Questions (5 Core Practice Questions)
+Q6. Check if a given number is Prime or not using a for loop.
+Explanation: A prime number is only divisible by 1 and itself. We check if any number between 2 and num - 1 divides the target number completely.
+
+Code & Solution:
+
+Python
+num = 29
+is_prime = True
+
+if num > 1:
+    for i in range(2, num):
+        if (num % i) == 0:
+            is_prime = False
+            break
+
+if is_prime:
+    print(f"{num} is a Prime Number")
+else:
+    print(f"{num} is not a Prime Number")
+Q7. Generate the Fibonacci series up to n terms.
+Explanation: The next number is the sum of the previous two numbers (0, 1, 1, 2, 3, 5...). We use a loop to update and print the sequence.
+
+Code & Solution:
+
+Python
+n_terms = 8
+n1, n2 = 0, 1
+count = 0
+
+print("Fibonacci Series:")
+while count < n_terms:
+    print(n1, end=" ")
+    nth = n1 + n2
+    n1 = n2
+    n2 = nth
+    count += 1
+Q8. Reverse a given integer using a while loop.
+Explanation: We extract the last digit using modulus (% 10), add it to a reversed variable multiplied by 10, and remove the last digit using integer division (// 10).
+
+Code & Solution:
+
+Python
+num = 12345
+rev_num = 0
+
+while num > 0:
+    digit = num % 10
+    rev_num = (rev_num * 10) + digit
+    num = num // 10
+
+print("Reversed Number:", rev_num)
+Q9. Find factorial of a number using a loop.
+Explanation: Factorial of 5 means 5 * 4 * 3 * 2 * 1. We multiply numbers iteratively.
+
+Code & Solution:
+
+Python
+num = 5
+factorial = 1
+
+for i in range(1, num + 1):
+    factorial *= i
+
+print(f"The factorial of {num} is {factorial}")
+Q10. Print a right-angled triangle star pattern using nested loops.
+Explanation: We use an outer loop for rows and an inner loop to print stars (*) corresponding to the row number.
+
+Code & Solution:
+
+Python
+rows = 5
+for i in range(1, rows + 1):
+    for j in range(i):
+        print("*", end=" ")
+    print()  # New line after each row
