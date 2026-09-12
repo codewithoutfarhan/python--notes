@@ -1,0 +1,312 @@
+Origin Story & Definition (English & Hinglish)What is NumPy?NumPy stands for Numerical Python. It is the fundamental core library for scientific computing and mathematical operations in Python. It was created in 2005 by Travis Oliphant by blending features of older libraries. It provides support for multi-dimensional arrays and matrices, along with high-performance mathematical functions.Hinglish mein samjho: Python ki normal lists slow hoti hain jab hum bade data par math calculations karte hain. NumPy ussi ka fast version hai! Isme data continuous memory me store hota hai, jisse computations (calculations) lightning-fast hoti hain kyunki yeh C language par optimized hai.🟢 NumPy: Easy Questions (5 Core Practice Questions)Q1. Create a 1D NumPy array from 1 to 5 and print it with its data type.Explanation: We import numpy as np and use np.array() to create a 1D vector.Code & Solution:Pythonimport numpy as np
+
+# Creating a 1D array
+arr = np.array([1, 2, 3, 4, 5])
+print("Array:", arr)
+print("Data Type:", arr.dtype)
+Q2. Find the shape, dimensions (ndim), and size of a 2D NumPy array.Explanation: .shape gives rows/cols, .ndim gives dimensions count, and .size gives total elements.Code & Solution:Pythonimport numpy as np
+
+matrix = np.array([[1, 2, 3], [4, 5, 6]])
+print("Shape (Rows, Cols):", matrix.shape)
+print("Dimensions:", matrix.ndim)
+print("Total Elements:", matrix.size)
+Q3. Create an array of zeros (size 5) and an array of ones (shape 2x3).Explanation: np.zeros() and np.ones() are shortcut functions to initialize arrays filled with 0s or 1s.Code & Solution:Pythonimport numpy as np
+
+zeros_arr = np.zeros(5)
+ones_matrix = np.ones((2, 3))
+
+print("Zeros Array:\n", zeros_arr)
+print("Ones Matrix:\n", ones_matrix)
+Q4. Add 10 to every element of a NumPy array using broadcasting.Explanation: NumPy allows vectorised operations, meaning you can add a scalar to an array directly without writing a for loop.Code & Solution:Pythonimport numpy as np
+
+arr = np.array([10, 20, 30, 40])
+new_arr = arr + 10
+
+print("Original:", arr)
+print("After adding 10:", new_arr)
+Q5. Find the sum, mean, and maximum value of a NumPy array.Explanation: Built-in NumPy aggregator functions like .sum(), .mean(), and .max() make data analysis super easy.Code & Solution:Pythonimport numpy as np
+
+scores = np.array([85, 90, 78, 92, 88])
+print("Total Sum:", scores.sum())
+print("Average Score:", scores.mean())
+print("Maximum Score:", scores.max())
+🟡 NumPy: Medium Questions (5 Core Practice Questions)Q6. Extract all odd numbers from a 1D NumPy array using boolean indexing.Explanation: We pass a condition arr % 2 != 0 inside the array brackets to filter elements dynamically without loops.Code & Solution:Pythonimport numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+odd_elements = arr[arr % 2 != 0]
+
+print("Original Array:", arr)
+print("Odd Numbers:", odd_elements)
+Q7. Slice a 2D matrix to extract the second row and specific columns.Explanation: Slicing syntax [row_start:row_end, col_start:col_end] lets us carve out sub-matrices.Code & Solution:Pythonimport numpy as np
+
+matrix = np.array([[10, 20, 30], 
+                   [40, 50, 60], 
+                   [70, 80, 90]])
+
+# Extracting the entire second row (index 1)
+row_2 = matrix[1, :]
+# Extracting a sub-matrix (first 2 rows, last 2 columns)
+sub_matrix = matrix[:2, 1:]
+
+print("Second Row:", row_2)
+print("Sub-matrix:\n", sub_matrix)
+Q8. Reshape a 1D array of 12 elements into a 3x4 matrix.Explanation: .reshape(rows, cols) changes the layout of the array without changing its underlying data, provided total elements match ($3 \times 4 = 12$).Code & Solution:Pythonimport numpy as np
+
+arr_1d = np.arange(1, 13) # Numbers from 1 to 12
+matrix_3x4 = arr_1d.reshape(3, 4)
+
+print("Original 1D:", arr_1d)
+print("Reshaped 3x4 Matrix:\n", matrix_3x4)
+Q9. Compute the dot product of two 2D matrices.Explanation: Matrix multiplication is done using np.dot() or the @ operator.Code & Solution:Pythonimport numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+# Matrix dot product
+result = np.dot(A, B)
+# Alternative: result = A @ B
+
+print("Matrix Product:\n", result)
+Q10. Replace all negative numbers in an array with 0.Explanation: We use boolean indexing combined with assignment to modify elements conditionally in-place.Code & Solution:Pythonimport numpy as np
+
+arr = np.array([-5, 12, -3, 8, 0, -1])
+arr[arr < 0] = 0
+
+print("Array after replacing negatives with 0:", arr
+
+
+
+
+-- ++++++++++++++++++++++++ PANDAS NOTES---------------------------------
+
+opic: Pandas Series (Q1 - Q5)
+Q1. Create a simple Pandas Series from a Python list of numbers and print it.
+Explanation: pd.Series() converts a flat list into a 1D labeled array.
+
+Code:
+
+Python
+import pandas as pd
+numbers = [10, 20, 30, 40, 50]
+s = pd.Series(numbers)
+print("Basic Series:\n", s)
+Q2. Create a Pandas Series with custom string indices (labels).
+Explanation: We pass an index parameter to name each row position.
+
+Code:
+
+Python
+import pandas as pd
+marks = [85, 90, 78]
+subjects = ['Math', 'Science', 'English']
+s = pd.Series(marks, index=subjects)
+print("Series with custom index:\n", s)
+Q3. Access a specific value from a Series using its custom index label.
+Explanation: We can query elements by using the index name inside square brackets.
+
+Code:
+
+Python
+import pandas as pd
+s = pd.Series([85, 90, 78], index=['Math', 'Science', 'English'])
+print("Marks in Science:", s['Science'])
+Q4. Add 5 to every element in a Pandas Series using vectorization.
+Explanation: Pandas allows direct mathematical operations on the entire series at once.
+
+Code:
+
+Python
+import pandas as pd
+s = pd.Series([10, 20, 30])
+print("Updated Series:\n", s + 5)
+Q5. Convert a standard Python dictionary into a Pandas Series.
+Explanation: Dictionary keys automatically become the Series indices, and values become the data.
+
+Code:
+
+Python
+import pandas as pd
+dict_data = {'A': 100, 'B': 200, 'C': 300}
+s = pd.Series(dict_data)
+print("Series from Dictionary:\n", s)
+Topic: DataFrames in Pandas (Q6 - Q10)
+Q6. Create a basic DataFrame using a Python dictionary.
+Explanation: A dictionary of lists creates a 2D table where keys become columns.
+
+Code:
+
+Python
+import pandas as pd
+data = {
+    'Name': ['Amit', 'Priya', 'Rohan'],
+    'Age': [21, 23, 22],
+    'City': ['Delhi', 'Mumbai', 'Pune']
+}
+df = pd.DataFrame(data)
+print("DataFrame:\n", df)
+Q7. Check the shape, column names, and data types of a DataFrame.
+Explanation: .shape, .columns, and .dtypes give structural insights.
+
+Code:
+
+Python
+import pandas as pd
+df = pd.DataFrame({'Name': ['Amit', 'Priya'], 'Age': [21, 23]})
+print("Shape:", df.shape)
+print("Columns:", df.columns)
+print("Data Types:\n", df.dtypes)
+Q8. Select a single column from a DataFrame.
+Explanation: Passing the column name in brackets extracts it as a Series.
+
+Code:
+
+Python
+import pandas as pd
+df = pd.DataFrame({'Name': ['Amit', 'Priya'], 'Age': [21, 23]})
+print(df['Name'])
+Q9. Select multiple columns from a DataFrame.
+Explanation: We pass a list of column names inside double brackets [['Col1', 'Col2']].
+
+Code:
+
+Python
+import pandas as pd
+df = pd.DataFrame({'Name': ['Amit', 'Priya'], 'Age': [21, 23], 'City': ['Delhi', 'Mumbai']})
+print(df[['Name', 'City']])
+Q10. Use .head() and .tail() to view specific rows.
+Explanation: .head(n) shows the first n rows, and .tail(n) shows the last n rows.
+
+Code:
+
+Python
+import pandas as pd
+df = pd.DataFrame({'A': range(10)})
+print("First 3 rows:\n", df.head(3))
+print("Last 2 rows:\n", df.tail(2))
+Topic: Missing Data in Pandas (Q11 - Q15)
+Q11. Check for missing values in a DataFrame and count them.
+Explanation: .isnull().sum() gives the total count of NaN values per column.
+
+Code:
+
+Python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'A': [1, 2, np.nan], 'B': [np.nan, 5, 6]})
+print(df.isnull().sum())
+Q12. Drop all rows containing any missing value.
+Explanation: .dropna() removes any row that has at least one NaN.
+
+Code:
+
+Python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'A': [1, 2, np.nan], 'B': [4, np.nan, 6]})
+print(df.dropna())
+Q13. Fill all missing values in a DataFrame with a default value (e.g., 0).
+Explanation: .fillna(value) replaces empty slots instantly.
+
+Code:
+
+Python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'A': [1, 2, np.nan], 'B': [4, np.nan, 6]})
+print(df.fillna(0))
+Q14. Filter rows where a specific column does not have missing values.
+Explanation: Using .notnull() keeps only valid records.
+
+Code:
+
+Python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'Name': ['A', 'B', 'C'], 'Age': [20, np.nan, 22]})
+print(df[df['Age'].notnull()])
+Q15. Fill missing values in a numerical column with its mean value.
+Explanation: Imputing with .mean() prevents data loss instead of dropping rows.
+
+Code:
+
+Python
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'Score': [80, np.nan, 90, 70]})
+df['Score'] = df['Score'].fillna(df['Score'].mean())
+print(df)
+🟡 Part 2: Pandas Harder Questions (5 Questions)
+Q16. Group data by a categorical column and calculate the average of another column (groupby).
+Explanation: .groupby() splits data into groups based on categories and applies aggregate functions like .mean().
+
+Code:
+
+Python
+import pandas as pd
+data = {
+    'Department': ['IT', 'HR', 'IT', 'HR', 'Finance'],
+    'Salary': [70000, 50000, 80000, 52000, 60000]
+}
+df = pd.DataFrame(data)
+avg_salary = df.groupby('Department')['Salary'].mean()
+print("Average Salary per Department:\n", avg_salary)
+Q17. Merge two separate DataFrames using a common column key (pd.merge).
+Explanation: Like SQL JOINs, pd.merge() combines two tables based on a shared column.
+
+Code:
+
+Python
+import pandas as pd
+df1 = pd.DataFrame({'ID': [1, 2, 3], 'Name': ['Amit', 'Priya', 'Rohan']})
+df2 = pd.DataFrame({'ID': [1, 2, 3], 'Score': [85, 90, 78]})
+
+merged_df = pd.merge(df1, df2, on='ID')
+print("Merged DataFrame:\n", merged_df)
+Q18. Apply a custom function to transform a DataFrame column using .apply().
+Explanation: .apply() executes a custom Python function across every element of a Series/column.
+
+Code:
+
+Python
+import pandas as pd
+df = pd.DataFrame({'Marks': [45, 60, 75, 90]})
+
+# Custom function to add 5 grace marks
+add_grace = lambda x: x + 5 if x < 50 else x
+df['Updated_Marks'] = df['Marks'].apply(add_grace)
+print(df)
+Q19. Perform a multi-condition filtering on a DataFrame.
+Explanation: We use bitwise operators (& for AND, | for OR) wrapped in parentheses to filter complex rules.
+
+Code:
+
+Python
+import pandas as pd
+data = {
+    'Name': ['Amit', 'Priya', 'Rohan', 'Sneha'],
+    'Age': [25, 30, 22, 28],
+    'Salary': [60000, 80000, 45000, 75000]
+}
+df = pd.DataFrame(data)
+# Filter: Age > 24 AND Salary > 50000
+result = df[(df['Age'] > 24) & (df['Salary'] > 50000)]
+print("Filtered Employees:\n", result)
+Q20. Create a new calculated column and sort the DataFrame in descending order.
+Explanation: We create a column using basic math and sort it using .sort_values(ascending=False).
+
+Code:
+
+Python
+import pandas as pd
+data = {
+    'Item': ['Pen', 'Notebook', 'Bag'],
+    'Price': [20, 100, 1200],
+    'Quantity': [5, 3, 2]
+}
+df = pd.DataFrame(data)
+# Calculate Total Cost
+df['Total_Cost'] = df['Price'] * df['Quantity']
+
+# Sort by Total_Cost in descending order
+sorted_df = df.sort_values(by='Total_Cost', ascending=False)
+print("Sorted DataFrame:\n", sorted_df)
